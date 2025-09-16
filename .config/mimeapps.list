@@ -1,0 +1,15 @@
+
+[Default Applications]
+text/html=google-chrome.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/unknown=google-chrome.desktop
+inode/directory=pcmanfm-qt.desktop
+application/x-directory=pcmanfm-qt.desktop
+image/png=swappy.desktop
+image/jpeg=swappy.desktop
+image/jpg=swappy.desktop
+image/gif=swappy.desktop
+image/bmp=swappy.desktop
+image/webp=swappy.desktop

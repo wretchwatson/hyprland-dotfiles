@@ -1,0 +1,36 @@
+# Geçici dosyalar
+*.tmp
+*.log
+*.cache
+
+# Kişisel bilgiler
+.ssh/
+.gnupg/
+.aws/
+
+# Cache dosyaları
+.config/*/cache/
+.config/*/Cache/
+.config/*/logs/
+.config/*/Logs/
+
+# Browser profilleri (kişisel veriler)
+.config/google-chrome/Default/
+.config/discord/
+
+# Spotify cache
+.config/spotify/
+
+# Oh-my-zsh güncellemeleri
+.oh-my-zsh/.git/
+
+# Sistem dosyaları
+.DS_Store
+Thumbs.db
+
+# IDE dosyaları
+.vscode/
+.idea/
+
+# Paket yöneticisi cache
+*.pkg.tar.xz

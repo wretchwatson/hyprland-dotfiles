@@ -1,0 +1,12 @@
+catppuccin-gtk-theme-git
+fjordlauncher
+google-chrome
+paru
+paru-debug
+sddm-theme-corners-git
+spotify
+spotify-adblock
+ttf-material-design-icons-webfont
+wlogout
+wofi-emoji
+zenpower3-dkms

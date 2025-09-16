@@ -1,0 +1,105 @@
+/* HyDE Style 1 - Wofi Adaptation */
+/* Sidebar launcher with background image */
+
+* {
+    font-family: "JetBrainsMono Nerd Font", "Fira Sans", monospace;
+    font-size: 14px;
+}
+
+window {
+    background-color: rgba(17, 17, 27, 0.9); /* main-bg */
+    border-radius: 12px;
+    border: 2px solid #025939; /* tema yeşili */
+    margin: 0px;
+    padding: 0px;
+}
+
+#input {
+    margin: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    background-color: rgba(17, 17, 27, 0.8);
+    color: #cdd6f4; /* main-fg */
+    padding: 8px 12px;
+    font-size: 15px;
+}
+
+#input:focus {
+    border: 2px solid #025939;
+    outline: none;
+}
+
+#inner-box {
+    background-color: transparent;
+    margin: 8px;
+}
+
+#outer-box {
+    background-color: transparent;
+    padding: 12px;
+}
+
+#scroll {
+    margin: 0px;
+}
+
+#text {
+    padding: 8px 12px;
+    color: #cdd6f4; /* main-fg */
+    font-weight: 500;
+}
+
+/* Entry styling - HyDE inspired */
+#entry {
+    background-color: transparent;
+    margin: 2px 4px;
+    border-radius: 8px;
+    padding: 8px 12px;
+    transition: all 0.2s ease;
+}
+
+#entry:nth-child(even) {
+    background-color: rgba(17, 17, 27, 0.3);
+}
+
+#entry:selected {
+    background-color: #025939; /* tema yeşili */
+    color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(2, 89, 57, 0.3);
+}
+
+#entry:hover {
+    background-color: rgba(2, 89, 57, 0.7);
+    color: #ffffff;
+}
+
+#text:selected {
+    background: transparent;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Icon styling */
+#entry image {
+    margin-right: 8px;
+    min-width: 24px;
+    min-height: 24px;
+}
+
+/* Scrollbar */
+scrollbar {
+    background-color: rgba(17, 17, 27, 0.5);
+    border-radius: 4px;
+    width: 6px;
+}
+
+scrollbar slider {
+    background-color: #025939;
+    border-radius: 4px;
+    min-height: 20px;
+}
+
+scrollbar slider:hover {
+    background-color: rgba(2, 89, 57, 0.8);
+}

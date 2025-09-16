@@ -1,0 +1,18 @@
+/* PCManFM-Qt focus outline'ı kaldır */
+QTreeView:focus {
+    outline: none;
+    border: none;
+}
+
+QListView:focus {
+    outline: none;
+    border: none;
+}
+
+QTreeView::item:selected:focus {
+    outline: none;
+}
+
+QListView::item:selected:focus {
+    outline: none;
+}

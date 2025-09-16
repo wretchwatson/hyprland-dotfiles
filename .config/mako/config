@@ -1,0 +1,15 @@
+max-visible=10
+layer=top
+font=Quicksand Medium 11
+background-color=#111827dd
+text-color=#c8d2e0
+border-color=#025939
+border-size=2
+border-radius=12
+max-icon-size=48
+default-timeout=8000
+anchor=top-right
+margin=20
+padding=12
+width=350
+height=100
