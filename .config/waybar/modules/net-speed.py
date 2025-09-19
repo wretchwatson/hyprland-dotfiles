@@ -220,7 +220,7 @@ Download: {download:.2f} Mbit/s
 Upload: {upload:.2f} Mbit/s"""
             
             output = {
-                "text": f"<span color='{download_color}'>↓{download_display:.1f}</span> <span color='{upload_color}'>↑{upload_display:.1f}</span>",
+                "text": f"🌐 <span color='{download_color}'>↓{download_display:.1f}</span> <span color='{upload_color}'>↑{upload_display:.1f}</span>",
                 "tooltip": tooltip_text,
                 "class": "network-speed"
             }

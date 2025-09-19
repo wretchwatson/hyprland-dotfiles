@@ -229,7 +229,7 @@
     "custom/clipboard": {
         "format": "󰅌",
         "tooltip": false,
-        "on-click": "cliphist list | sed 's/^[0-9]*\t//' | wofi --dmenu | cliphist decode | wl-copy",
+        "on-click": "cliphist list | wofi --dmenu | cliphist decode | wl-copy",
         "on-click-right": "cliphist wipe"
     },
 
