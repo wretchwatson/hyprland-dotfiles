@@ -111,7 +111,7 @@ fi
 echo -e "${BLUE}5. Font cache güncelleniyor...${NC}"
 fc-cache -fv
 
-echo -e "${BLUE}6. SDDM teması kuruluyor...${NC}"
+echo -e "${BLUE}6. SDDM teması ve 240Hz konfigürasyonu kuruluyor...${NC}"
 if [ -d "sddm-theme" ]; then
     sudo cp -r sddm-theme/* /usr/share/sddm/themes/
     
@@ -139,6 +139,15 @@ EOF
     echo -e "${GREEN}SDDM konfigürasyonu oluşturuldu.${NC}"
 else
     echo -e "${YELLOW}sddm-theme klasörü bulunamadı, SDDM teması atlanıyor.${NC}"
+fi
+
+# X11 240Hz konfigürasyonu
+if [ -f "20-nvidia-240hz.conf" ]; then
+    echo -e "${YELLOW}X11 240Hz konfigürasyonu ekleniyor...${NC}"
+    sudo cp 20-nvidia-240hz.conf /etc/X11/xorg.conf.d/
+    echo -e "${GREEN}SDDM artık 240Hz ile çalışacak!${NC}"
+else
+    echo -e "${YELLOW}20-nvidia-240hz.conf bulunamadı, 240Hz konfigürasyonu atlanıyor.${NC}"
 fi
 
 echo -e "${BLUE}7. Servisler etkinleştiriliyor...${NC}"
