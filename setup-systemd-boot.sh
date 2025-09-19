@@ -33,7 +33,7 @@ echo -e "${BLUE}3. Loader konfigürasyonu oluşturuluyor...${NC}"
 cat > /boot/loader/loader.conf << EOF
 default arch.conf
 timeout 3
-console-mode max
+console-mode 1
 editor no
 EOF
 
