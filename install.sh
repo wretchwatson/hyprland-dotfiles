@@ -114,9 +114,31 @@ fc-cache -fv
 echo -e "${BLUE}6. SDDM teması kuruluyor...${NC}"
 if [ -d "sddm-theme" ]; then
     sudo cp -r sddm-theme/* /usr/share/sddm/themes/
-    echo -e "${YELLOW}SDDM konfigürasyonunu manuel olarak ayarlamanız gerekiyor:${NC}"
-    echo "sudo nano /etc/sddm.conf"
-    echo "[Theme] bölümünde Current=corners-new olarak ayarlayın"
+    
+    # SDDM konfigürasyon dosyasını oluştur
+    echo -e "${YELLOW}SDDM konfigürasyonu oluşturuluyor...${NC}"
+    sudo tee /etc/sddm.conf > /dev/null <<EOF
+[Autologin]
+Relogin=false
+Session=
+User=
+
+[General]
+HaltCommand=/usr/bin/systemctl poweroff
+RebootCommand=/usr/bin/systemctl reboot
+
+[Theme]
+Current=corners-new
+CursorTheme=capitaine-cursors
+Font=Noto Sans,10,-1,0,50,0,0,0,0,0
+
+[Users]
+MaximumUid=60513
+MinimumUid=1000
+EOF
+    echo -e "${GREEN}SDDM konfigürasyonu oluşturuldu.${NC}"
+else
+    echo -e "${YELLOW}sddm-theme klasörü bulunamadı, SDDM teması atlanıyor.${NC}"
 fi
 
 echo -e "${BLUE}7. Servisler etkinleştiriliyor...${NC}"
