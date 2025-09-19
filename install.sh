@@ -24,7 +24,39 @@ backup_existing() {
     fi
 }
 
-echo -e "${BLUE}1. Paketler yükleniyor...${NC}"
+echo -e "${BLUE}1. Paru AUR helper kontrol ediliyor ve yükleniyor...${NC}"
+
+# Paru kontrolü ve kurulumu
+if ! command -v paru &> /dev/null; then
+    echo -e "${YELLOW}Paru bulunamadı, yükleniyor...${NC}"
+    
+    # Git ve base-devel paketlerini yükle
+    sudo pacman -S --needed --noconfirm git base-devel
+    
+    # Paru'yu AUR'dan yükle
+    cd /tmp
+    git clone https://aur.archlinux.org/paru.git
+    cd paru
+    makepkg -si --noconfirm
+    cd ~
+    
+    echo -e "${GREEN}Paru başarıyla yüklendi!${NC}"
+else
+    echo -e "${GREEN}Paru zaten yüklü.${NC}"
+fi
+
+echo -e "${BLUE}2. Paketler yükleniyor...${NC}"
+
+# Paket listesi dosyalarını kontrol et
+if [ ! -f "packages.txt" ]; then
+    echo -e "${RED}packages.txt dosyası bulunamadı!${NC}"
+    exit 1
+fi
+
+if [ ! -f "aur-packages.txt" ]; then
+    echo -e "${RED}aur-packages.txt dosyası bulunamadı!${NC}"
+    exit 1
+fi
 
 # Ana paketleri yükle
 if command -v pacman &> /dev/null; then
@@ -47,7 +79,7 @@ else
     echo "AUR paketleri: $(cat aur-packages.txt | tr '\n' ' ')"
 fi
 
-echo -e "${BLUE}2. Konfigürasyon dosyaları kopyalanıyor...${NC}"
+echo -e "${BLUE}3. Konfigürasyon dosyaları kopyalanıyor...${NC}"
 
 # Gerekli dizinleri oluştur
 mkdir -p ~/.config
@@ -74,10 +106,20 @@ cp .zshrc ~/.zshrc
 cp .p10k.zsh ~/.p10k.zsh
 cp .gtkrc-2.0 ~/.gtkrc-2.0
 
-echo -e "${BLUE}3. Font cache güncelleniyor...${NC}"
+echo -e "${BLUE}4. Python sanal ortamı kuruluyor...${NC}"
+# Waybar modülleri için Python sanal ortamı
+if [ ! -d "~/.myenv" ]; then
+    python -m venv ~/.myenv
+    ~/.myenv/bin/pip install psutil requests
+    echo -e "${GREEN}Python sanal ortamı oluşturuldu.${NC}"
+else
+    echo -e "${GREEN}Python sanal ortamı zaten mevcut.${NC}"
+fi
+
+echo -e "${BLUE}5. Font cache güncelleniyor...${NC}"
 fc-cache -fv
 
-echo -e "${BLUE}4. SDDM teması kuruluyor...${NC}"
+echo -e "${BLUE}6. SDDM teması kuruluyor...${NC}"
 if [ -d "sddm-theme" ]; then
     sudo cp -r sddm-theme/* /usr/share/sddm/themes/
     echo -e "${YELLOW}SDDM konfigürasyonunu manuel olarak ayarlamanız gerekiyor:${NC}"
@@ -85,18 +127,32 @@ if [ -d "sddm-theme" ]; then
     echo "[Theme] bölümünde Current=corners-new olarak ayarlayın"
 fi
 
-echo -e "${BLUE}5. Servisler etkinleştiriliyor...${NC}"
+echo -e "${BLUE}7. Servisler etkinleştiriliyor...${NC}"
 sudo systemctl enable sddm
 sudo systemctl enable bluetooth
+
+echo -e "${BLUE}8. Son ayarlar yapılıyor...${NC}"
+# Waybar modüllerini çalıştırılabilir yap
+chmod +x ~/.config/waybar/modules/*.py 2>/dev/null || true
+chmod +x ~/.config/waybar/modules/*.sh 2>/dev/null || true
+chmod +x ~/.config/hypr/scripts/*.sh 2>/dev/null || true
+
+# Cliphist daemon'ını başlat
+if command -v cliphist &> /dev/null; then
+    pkill cliphist 2>/dev/null || true
+    cliphist daemon &
+    echo -e "${GREEN}Cliphist daemon başlatıldı.${NC}"
+fi
 
 echo -e "${GREEN}✅ Kurulum tamamlandı!${NC}"
 echo -e "${YELLOW}Sistemi yeniden başlatmanız önerilir.${NC}"
 echo ""
 echo -e "${BLUE}Kullanım:${NC}"
-echo "• Super + Q: Terminal"
+echo "• Super + Return: Terminal"
 echo "• Super + Space: Uygulama başlatıcısı"
 echo "• Super + E: Dosya yöneticisi"
 echo "• Super + L: Ekranı kilitle"
-echo "• Super + M: Çıkış menüsü"
+echo "• Super + Shift + E: Efekt toggle"
+echo "• Super + O: Waybar yenile"
 echo ""
 echo -e "${GREEN}İyi kullanımlar! 🎉${NC}"
