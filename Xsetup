@@ -1,8 +1,5 @@
 #!/bin/sh
-# SDDM Xsetup Script - 240Hz ayarları
+# SDDM Xsetup Script - 239.96Hz ayarları
 
-# 240Hz refresh rate ayarla
-xrandr --output DP-1 --mode 1920x1080 --rate 240 2>/dev/null || true
-
-# Alternatif olarak 239.88Hz dene
-xrandr --output DP-1 --mode 1920x1080 --rate 239.88 2>/dev/null || true
+# 239.96Hz refresh rate ayarla
+xrandr --output DP-1 --mode 1920x1080 --rate 239.96
