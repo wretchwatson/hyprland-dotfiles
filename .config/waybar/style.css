@@ -32,7 +32,7 @@ window#waybar.hidden {
     border-radius: 6px;
     font-size: 12px;
     background-color: #111827;
-    color: @foreground;
+    color: #ffffff;
     transition: all 0.2s ease-in-out;
 }
 
@@ -60,7 +60,7 @@ window#waybar.hidden {
     border-radius: 12px;
     padding: 2px 4px;
     margin: 1px;
-    color: @foreground;
+    color: #ffffff;
 }
 
 /* Ortak modül ayarları */
@@ -117,6 +117,10 @@ window#waybar.hidden {
 
 #custom-speed.error {
     color: #bf616a;
+}
+
+#custom-speed.network-speed {
+    min-width: 80px;
 }
 
 #custom-launcher {

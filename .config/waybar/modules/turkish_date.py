@@ -1,12 +1,17 @@
 #!/usr/bin/env python3
-import json
+"""Turkish date and time display module for Waybar."""
+
+import calendar
 import datetime
+import json
 import locale
 
+
 def main():
+    """Generate Turkish date and time output for Waybar."""
     try:
         locale.setlocale(locale.LC_TIME, 'tr_TR.UTF-8')
-    except:
+    except locale.Error:
         pass
     
     now = datetime.datetime.now()
@@ -26,11 +31,13 @@ def main():
     weekday = turkish_days[now.weekday()]
     
     # Takvim oluştur
-    import calendar
     cal = calendar.month(now.year, now.month)
     
     # Bugünü vurgula
-    cal_formatted = cal.replace(f' {now.day} ', f' <span background="#025939" foreground="white">{now.day}</span> ')
+    cal_formatted = cal.replace(
+        f' {now.day} ', 
+        f' <span background="#025939" foreground="white">{now.day}</span> '
+    )
     
     output = {
         "text": f"󰥔  {time_str}  {weekday}, {day} {month}",

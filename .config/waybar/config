@@ -262,11 +262,7 @@
     "custom/gammastep": {
       "interval": 5,
       "return-type": "json",
-      "exec": {
-        "pre": "if unit_status=\"$(systemctl --user is-active gammastep)\"; then\nstatus=\"$unit_status ($(journalctl --user -u gammastep.service -g 'Period: ' | tail -1 | cut -d ':' -f6 | xargs))\"\nelse\nstatus=\"$unit_status\"\nfi",
-        "alt": "${status:-inactive}",
-        "tooltip": "Gammastep is $status",
-      },
+      "exec": "echo '{\"text\":\"?\", \"tooltip\":\"Gammastep inactive\"}'",
       "format": "{icon}",
       "format-icons": {
         "activating": "󰁪 ",
@@ -279,9 +275,9 @@
         "active (Day)": " ",
         "active (Daytime)": " ",
         "active (Transition (Day)": " ",
-        "active (Transition (Daytime)": " ",
+        "active (Transition (Daytime)": " "
       },
-      "on-click": "systemctl --user is-active gammastep && systemctl --user stop gammastep || systemctl --user start gammastep",
+      "on-click": "systemctl --user is-active gammastep && systemctl --user stop gammastep || systemctl --user start gammastep"
     },
 
     "cpu": {
@@ -303,6 +299,54 @@
         "on-click-middle": "alacritty -e ncmpcpp",
         "on-scroll-up": "mpc --quiet prev",
         "on-scroll-down": "mpc --quiet next",
+        "smooth-scrolling-threshold": 5,
+        "tooltip-format": "{title} - {artist} ({elapsedTime:%M:%S}/{totalTime:%H:%M:%S})"
+    },
+
+    "hyprland/workspaces": {
+        "all-outputs": true,
+        "format": "{name}",
+        "format-icons": {
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "6": "六",
+            "7": "七",
+            "8": "八",
+            "9": "九",
+            "10": "十"
+        },
+        "on-scroll-up": "hyprctl dispatch workspace e+1 1>/dev/null",
+        "on-scroll-down": "hyprctl dispatch workspace e-1 1>/dev/null",
+        "sort-by-number": true,
+        "active-only": false
+    },
+
+    "wireplumber": {
+        "on-click": "pavucontrol",
+        "on-click-right": "amixer sset Master toggle 1>/dev/null",
+        "format": "<span foreground='#fab387'>{icon}</span>  {volume}%",
+        "format-muted": " ",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "󰋋",
+            "hands-free": "󰋎",
+            "headset": "󰋎",
+            "phone": "󰏲",
+            "portable": "󰦢",
+            "car": "󰄋",
+            "default": ["󰕿", "󰖀", "󰕾"]
+        }
+    },
+
+    "tray": {
+        "icon-size": 15,
+        "spacing": 5
+    }
+}et next",
         "smooth-scrolling-threshold": 5,
         "tooltip-format": "{title} - {artist} ({elapsedTime:%M:%S}/{totalTime:%H:%M:%S})"
     },
