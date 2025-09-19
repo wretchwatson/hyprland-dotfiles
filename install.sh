@@ -141,13 +141,14 @@ else
     echo -e "${YELLOW}sddm-theme klasörü bulunamadı, SDDM teması atlanıyor.${NC}"
 fi
 
-# X11 240Hz konfigürasyonu
-if [ -f "20-nvidia-240hz.conf" ]; then
-    echo -e "${YELLOW}X11 240Hz konfigürasyonu ekleniyor...${NC}"
-    sudo cp 20-nvidia-240hz.conf /etc/X11/xorg.conf.d/
+# SDDM 240Hz Xsetup scripti
+if [ -f "Xsetup" ]; then
+    echo -e "${YELLOW}SDDM 240Hz Xsetup scripti kuruluyor...${NC}"
+    sudo cp Xsetup /usr/share/sddm/scripts/
+    sudo chmod +x /usr/share/sddm/scripts/Xsetup
     echo -e "${GREEN}SDDM artık 240Hz ile çalışacak!${NC}"
 else
-    echo -e "${YELLOW}20-nvidia-240hz.conf bulunamadı, 240Hz konfigürasyonu atlanıyor.${NC}"
+    echo -e "${YELLOW}Xsetup scripti bulunamadı, 240Hz konfigürasyonu atlanıyor.${NC}"
 fi
 
 echo -e "${BLUE}7. Servisler etkinleştiriliyor...${NC}"
