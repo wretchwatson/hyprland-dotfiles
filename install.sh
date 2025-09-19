@@ -48,12 +48,12 @@ fi
 echo -e "${BLUE}2. Paketler yükleniyor...${NC}"
 
 # Paket listesi dosyalarını kontrol et
-if [ ! -f "packages.txt" ]; then
+if [ ! -f "./packages.txt" ]; then
     echo -e "${RED}packages.txt dosyası bulunamadı!${NC}"
     exit 1
 fi
 
-if [ ! -f "aur-packages.txt" ]; then
+if [ ! -f "./aur-packages.txt" ]; then
     echo -e "${RED}aur-packages.txt dosyası bulunamadı!${NC}"
     exit 1
 fi
@@ -67,17 +67,9 @@ else
     exit 1
 fi
 
-# AUR helper kontrolü
-if command -v paru &> /dev/null; then
-    echo "Paru ile AUR paketleri yükleniyor..."
-    paru -S --needed --noconfirm - < aur-packages.txt
-elif command -v yay &> /dev/null; then
-    echo "Yay ile AUR paketleri yükleniyor..."
-    yay -S --needed --noconfirm - < aur-packages.txt
-else
-    echo -e "${YELLOW}AUR helper bulunamadı. AUR paketlerini manuel yüklemeniz gerekecek.${NC}"
-    echo "AUR paketleri: $(cat aur-packages.txt | tr '\n' ' ')"
-fi
+# Paru ile AUR paketleri yükle
+echo "Paru ile AUR paketleri yükleniyor..."
+paru -S --needed --noconfirm - < aur-packages.txt
 
 echo -e "${BLUE}3. Konfigürasyon dosyaları kopyalanıyor...${NC}"
 
