@@ -141,15 +141,6 @@ else
     echo -e "${YELLOW}sddm-theme klasörü bulunamadı, SDDM teması atlanıyor.${NC}"
 fi
 
-# SDDM 240Hz Xsetup scripti
-if [ -f "Xsetup" ]; then
-    echo -e "${YELLOW}SDDM 240Hz Xsetup scripti kuruluyor...${NC}"
-    sudo cp Xsetup /usr/share/sddm/scripts/
-    sudo chmod +x /usr/share/sddm/scripts/Xsetup
-    echo -e "${GREEN}SDDM artık 240Hz ile çalışacak!${NC}"
-else
-    echo -e "${YELLOW}Xsetup scripti bulunamadı, 240Hz konfigürasyonu atlanıyor.${NC}"
-fi
 
 echo -e "${BLUE}7. Servisler etkinleştiriliyor...${NC}"
 sudo systemctl enable sddm
