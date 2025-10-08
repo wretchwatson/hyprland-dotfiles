@@ -1,0 +1,111 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 32,
+    "spacing": 8,
+    "margin-top": 5,
+    "margin-left": 10,
+    "margin-right": 10,
+    
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["clock", "custom/weather"],
+    "modules-right": ["custom/network", "custom/cpu", "custom/gpu", "custom/memory", "custom/clipboard", "custom/screenshot", "pulseaudio", "battery", "tray", "custom/power"],
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{name}"
+    },
+
+    "clock": {
+        "timezone": "Europe/Istanbul",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "󰥔 {:%H:%M}",
+        "format-alt": "󰃭 {:%Y-%m-%d}"
+    },
+
+    "custom/weather": {
+        "exec": "~/.config/waybar/scripts/weather.py",
+        "return-type": "json",
+        "interval": 600
+    },
+
+    "custom/clipboard": {
+        "exec": "~/.config/waybar/scripts/clipboard.py",
+        "return-type": "json",
+        "interval": 2,
+        "on-click": "~/.config/waybar/scripts/clipboard-menu.sh"
+    },
+
+    "custom/screenshot": {
+        "exec": "~/.config/waybar/scripts/screenshot.py",
+        "return-type": "json",
+        "interval": 30,
+        "on-click": "~/.config/waybar/scripts/screenshot.sh full",
+        "on-click-right": "~/.config/waybar/scripts/screenshot.sh area",
+        "on-click-middle": "~/.config/waybar/scripts/screenshot.sh window"
+    },
+
+    "custom/cpu": {
+        "exec": "~/.config/waybar/scripts/cpu_info.py",
+        "return-type": "json",
+        "interval": 2
+    },
+
+    "custom/gpu": {
+        "exec": "~/.config/waybar/scripts/gpu_info.py",
+        "return-type": "json",
+        "interval": 3
+    },
+
+    "custom/memory": {
+        "exec": "~/.config/waybar/scripts/memory_info.py",
+        "return-type": "json",
+        "interval": 3
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰚥 {capacity}%",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+
+    "custom/network": {
+        "exec": "~/.config/waybar/scripts/network_speed.py",
+        "return-type": "json",
+        "interval": 2
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
+        "format-bluetooth-muted": "󰂲 Muted",
+        "format-muted": "󰖁 Muted",
+        "format-icons": {
+            "headphone": "󰋋",
+            "hands-free": "󰋎",
+            "headset": "󰋎",
+            "phone": "󰄜",
+            "portable": "󰦧",
+            "car": "󰄋",
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "tray": {
+        "spacing": 10
+    },
+
+    "custom/power": {
+        "format": "󰐥",
+        "tooltip": "Power Menu",
+        "on-click": "wlogout"
+    }
+}

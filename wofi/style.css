@@ -1,0 +1,49 @@
+window {
+    margin: 0px;
+    border: 2px solid #9d4edd;
+    background-color: rgba(45, 52, 54, 0.95);
+    border-radius: 10px;
+    font-family: "Quicksand Medium", sans-serif;
+    font-size: 16px;
+}
+
+#input {
+    margin: 5px;
+    border: 2px solid #6c5ce7;
+    color: #ffffff;
+    background-color: rgba(108, 92, 231, 0.3);
+    border-radius: 5px;
+}
+
+#inner-box {
+    margin: 5px;
+    border: none;
+    background-color: transparent;
+}
+
+#outer-box {
+    margin: 5px;
+    border: none;
+    background-color: transparent;
+}
+
+#scroll {
+    margin: 0px;
+    border: none;
+}
+
+#text {
+    margin: 5px;
+    border: none;
+    color: #ffffff;
+}
+
+#entry:selected {
+    background: linear-gradient(45deg, #9d4edd, #a29bfe);
+    border-radius: 5px;
+}
+
+#entry:hover {
+    background-color: rgba(6, 255, 165, 0.3);
+    border-radius: 5px;
+}

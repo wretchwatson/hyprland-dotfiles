@@ -1,0 +1,97 @@
+# Hyprland Dotfiles - Gerekli Paketler
+
+## Ana Hyprland Paketleri
+hyprland
+hyprpaper
+hyprlock
+wlogout
+
+## Panel ve Menüler
+waybar
+wofi
+mako
+
+## Terminal ve Dosya Yöneticisi
+kitty
+pcmanfm-qt
+
+## Tema ve Görünüm
+qt6ct
+kvantum
+capitaine-cursors
+arc-gtk-theme
+papirus-icon-theme
+ttf-font-awesome
+ttf-nerd-fonts-symbols
+noto-fonts
+
+## Sistem Araçları
+fastfetch
+cliphist
+wl-clipboard
+lxqt-policykit-agent
+network-manager-applet
+blueman
+python
+python-psutil
+python-requests
+grim
+slurp
+swappy
+jq
+lm_sensors
+xdg-desktop-portal-hyprland
+xdg-user-dirs
+xorg-xdpyinfo
+xorg-xhost
+xorg-xinit
+xorg-xinput
+xorg-xkill
+xorg-xrandr
+amd-ucode
+gnome-disk-utility
+gnome-keyring
+gparted
+seahorse
+gvfs-smb
+htop
+inxi
+lxqt-archiver
+zip
+unzip
+unrar
+micro
+code
+discord
+bc
+mtr
+mesa-utils
+mpv
+nano
+noto-fonts-cjk
+noto-fonts-emoji
+ntfs-3g
+nwg-look
+reflector
+sbctl
+yt-dlp
+zsh
+
+## SDDM
+sddm
+
+## Kurulum Komutu (Arch Linux)
+```bash
+sudo pacman -S hyprland hyprpaper hyprlock wlogout waybar wofi mako kitty pcmanfm-qt qt6ct kvantum capitaine-cursors arc-gtk-theme papirus-icon-theme fastfetch cliphist wl-clipboard lxqt-policykit-agent network-manager-applet blueman sddm ttf-font-awesome ttf-nerd-fonts-symbols noto-fonts python python-psutil python-requests grim slurp swappy jq lm_sensors xdg-desktop-portal-hyprland xdg-user-dirs xorg-xdpyinfo xorg-xhost xorg-xinit xorg-xinput xorg-xkill xorg-xrandr amd-ucode gnome-disk-utility gnome-keyring gparted seahorse gvfs-smb htop inxi lxqt-archiver zip unzip unrar micro code discord bc mtr mesa-utils mpv nano noto-fonts-cjk noto-fonts-emoji ntfs-3g nwg-look reflector sbctl yt-dlp zsh
+```
+
+## AUR Paketleri
+```bash
+yay -S hyprlock sddm-theme-sugar-candy-git
+```
+
+## Oh My Zsh ve Pluginleri
+Oh My Zsh otomatik olarak kurulur ve şu pluginler eklenir:
+- zsh-autosuggestions
+- zsh-syntax-highlighting  
+- powerlevel10k

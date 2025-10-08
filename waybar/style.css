@@ -1,0 +1,231 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Quicksand Medium", sans-serif;
+    font-size: 16px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: linear-gradient(135deg, rgba(45, 52, 54, 0.95), rgba(108, 92, 231, 0.1));
+    border-radius: 15px;
+    border: 2px solid rgba(157, 78, 221, 0.3);
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+#workspaces {
+    margin: 0 4px;
+}
+
+#workspaces button {
+    padding: 1px 6px;
+    margin: 1px;
+    background-color: rgba(108, 92, 231, 0.2);
+    color: #ffffff;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+#workspaces button:hover {
+    background: rgba(157, 78, 221, 0.4);
+}
+
+#workspaces button.active {
+    background: linear-gradient(45deg, #9d4edd, #06ffa5);
+    border: 2px solid #06ffa5;
+    box-shadow: 0 0 15px rgba(157, 78, 221, 0.5);
+}
+
+#workspaces button.urgent {
+    background-color: #e74c3c;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
+}
+
+#clock,
+#battery,
+#cpu,
+#custom-cpu,
+#custom-gpu,
+#memory,
+#custom-memory,
+#custom-weather,
+#custom-clipboard,
+#custom-screenshot,
+#disk,
+#temperature,
+#backlight,
+#network,
+#custom-network,
+#pulseaudio,
+#tray,
+#custom-power {
+    padding: 1px 6px;
+    margin: 1px;
+    color: #ffffff;
+    background: rgba(108, 92, 231, 0.2);
+    border-radius: 12px;
+    border: 1px solid rgba(157, 78, 221, 0.3);
+    transition: all 0.3s ease;
+}
+
+#clock:hover,
+#custom-weather:hover,
+#custom-clipboard:hover,
+#custom-screenshot:hover,
+#battery:hover,
+#cpu:hover,
+#custom-cpu:hover,
+#custom-gpu:hover,
+#memory:hover,
+#custom-memory:hover,
+#network:hover,
+#custom-network:hover,
+#pulseaudio:hover,
+#tray:hover,
+#custom-power:hover {
+    background: rgba(157, 78, 221, 0.4);
+    box-shadow: 0 4px 15px rgba(157, 78, 221, 0.3);
+}
+
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+
+#clock {
+    background: linear-gradient(45deg, #9d4edd, #a29bfe);
+    font-weight: bold;
+}
+
+#custom-weather {
+    background: linear-gradient(45deg, #74b9ff, #0984e3);
+    font-weight: bold;
+}
+
+#cpu,
+#custom-cpu {
+    background: linear-gradient(45deg, #6c5ce7, #74b9ff);
+}
+
+#custom-gpu {
+    background: linear-gradient(45deg, #e84393, #fd79a8);
+}
+
+#custom-clipboard {
+    background: linear-gradient(45deg, #fdcb6e, #f39c12);
+}
+
+#custom-screenshot {
+    background: linear-gradient(45deg, #ff7675, #e17055);
+}
+
+#memory,
+#custom-memory {
+    background: linear-gradient(45deg, #00a085, #00b7a3);
+}
+
+#battery {
+    background: linear-gradient(45deg, #00d68f, #00a085);
+}
+
+#battery.charging, #battery.plugged {
+    background: linear-gradient(45deg, #00d68f, #00b7a3);
+    animation: charging 2s ease-in-out infinite alternate;
+}
+
+@keyframes charging {
+    from { box-shadow: 0 0 5px rgba(6, 255, 165, 0.5); }
+    to { box-shadow: 0 0 20px rgba(6, 255, 165, 0.8); }
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#network,
+#custom-network {
+    background: linear-gradient(45deg, #74b9ff, #6c5ce7);
+}
+
+#network.disconnected {
+    background: linear-gradient(45deg, #e74c3c, #d63031);
+}
+
+#pulseaudio {
+    background: linear-gradient(45deg, #a29bfe, #9d4edd);
+}
+
+#pulseaudio.muted {
+    background: linear-gradient(45deg, #636e72, #2d3436);
+    color: #ddd;
+}
+
+#tray {
+    background: linear-gradient(45deg, #00b7a3, #00d68f);
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+
+#custom-power {
+    background: linear-gradient(45deg, #9d4edd, #e84393);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#custom-power:hover {
+    background: linear-gradient(45deg, #6c5ce7, #9d4edd);
+    animation: powerPulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes powerPulse {
+    from { box-shadow: 0 0 5px rgba(232, 67, 147, 0.5); }
+    to { box-shadow: 0 0 15px rgba(232, 67, 147, 0.8); }
+}
+
+/* Tooltip styling */
+tooltip {
+    background: rgba(45, 52, 54, 0.95);
+    border: 2px solid rgba(157, 78, 221, 0.5);
+    border-radius: 10px;
+    color: #ffffff;
+    font-family: "Quicksand Medium", sans-serif;
+}
+
+tooltip label {
+    color: #ffffff;
+    font-family: "Quicksand Medium", sans-serif;
+}
