@@ -1,57 +1,77 @@
-# Hypr-Mini Dotfiles
+# 🌟 Hyprland Dotfiles
 
-Bu repo Hyprland masaüstü ortamı için kişisel ayarlarımı içerir.
+> Modern ve minimalist Hyprland masaüstü ortamı konfigürasyonu
 
-## İçerik
+## ✨ Özellikler
 
-- **hypr/**: Hyprland ana konfigürasyonu
-- **waybar/**: Waybar panel ayarları
-- **wlogout/**: Çıkış menüsü (Türkçe)
-- **wofi/**: Uygulama başlatıcısı
-- **mako/**: Bildirim sistemi
-- **kitty/**: Terminal emülatörü
-- **fastfetch/**: Sistem bilgi gösterici
-- **Kvantum/**: Qt tema motoru
-- **qt6ct/**: Qt6 tema ayarları
-- **fonts/**: Quicksand font dosyaları
-- **.zshrc**: Zsh shell ayarları (varsa)
-- **.p10k.zsh**: Powerlevel10k tema ayarları (varsa)
-- **sddm.conf**: SDDM giriş ekranı ayarları
-- **mimeapps.list**: Varsayılan uygulama ayarları
+### 🎨 **Görsel Deneyim**
+- **Otomatik Wallpaper Değişimi** - Her saat başında yeni arkaplan
+- **Arc Dark Teması** - Tutarlı GTK ve Qt tema desteği
+- **Papirus İkonları** - Modern ve şık ikon seti
+- **Capitaine Cursors** - Zarif imleç teması
+- **Quicksand Font** - Okunabilir ve modern tipografi
 
-## Otomatik Kurulum
+### 🚀 **Performans ve İşlevsellik**
+- **Modüler Konfigürasyon** - Kolay özelleştirme ve bakım
+- **Akıllı Kurulum** - Tek tıkla tam sistem kurulumu
+- **Waybar Panel** - CPU, GPU, RAM ve ağ monitörü
+- **Türkçe Destek** - Yerelleştirilmiş çıkış menüsü
+- **Clipboard Yönetimi** - Gelişmiş pano geçmişi
+
+### 🛠️ **Geliştirici Araçları**
+- **Zsh + Oh My Zsh** - Güçlü terminal deneyimi
+- **Powerlevel10k** - Hızlı ve bilgilendirici prompt
+- **VS Code** - Entegre geliştirme ortamı
+- **Git Desteği** - Versiyon kontrol entegrasyonu
+
+## 📦 Dahil Edilen Uygulamalar
+
+| Kategori | Uygulama | Açıklama |
+|----------|----------|----------|
+| **Masaüstü** | Hyprland | Wayland kompozitörü |
+| **Panel** | Waybar | Sistem monitörü ve panel |
+| **Terminal** | Kitty | GPU hızlandırmalı terminal |
+| **Dosya Yöneticisi** | PCManFM-Qt | Hafif ve hızlı dosya yöneticisi |
+| **Uygulama Başlatıcı** | Wofi | Minimalist launcher |
+| **Bildirimler** | Mako | Wayland bildirim daemon'u |
+| **Tarayıcı** | Google Chrome | Modern web tarayıcısı |
+| **Oyun** | Fjord Launcher | Minecraft launcher |
+
+## 🚀 Hızlı Kurulum
+
+Tek komutla tüm sistemi kurun:
 
 ```bash
-# Kurulum betiğini çalıştır
-./install.sh
+chmod +x install.sh && ./install.sh
 ```
 
-## Manuel Kurulum
+> **Not:** Kurulum sonrası sistemi yeniden başlatmayı unutmayın!
 
-```bash
-# Config klasörüne kopyala
-cp -r hypr ~/.config/
-cp -r waybar ~/.config/
-cp -r wlogout ~/.config/
-cp -r wofi ~/.config/
-cp -r mako ~/.config/
-cp -r kitty ~/.config/
-cp -r fastfetch ~/.config/
-cp -r Kvantum ~/.config/
-cp -r qt6ct ~/.config/
-cp mimeapps.list ~/.config/
+## 🎯 Sistem Gereksinimleri
 
-# SDDM config (root yetkisi gerekli)
-sudo cp sddm.conf /etc/
-```
+- **İşletim Sistemi:** Arch Linux
+- **Grafik:** AMD/Intel/NVIDIA (Wayland desteği)
+- **RAM:** Minimum 4GB (8GB önerilen)
+- **Depolama:** 10GB boş alan
 
-## Gerekli Paketler
+## 📋 Kurulum Sonrası
 
-Tüm paket listesi için `packages.txt` dosyasına bakın.
+1. **SDDM'den Hyprland'ı seçin**
+2. **Wallpaper'larınızı** `~/.local/share/wallpaper/` klasörüne ekleyin
+3. **Kişisel ayarlarınızı** yapın
+4. **Keyfini çıkarın!** 🎉
 
-## Özellikler
+## 🔧 Özelleştirme
 
-- Capitaine-cursors tema desteği
-- PCManFM-Qt varsayılan dosya yöneticisi
-- Türkçe wlogout menüsü
-- Qt6 ve GTK tema uyumluluğu
+Tüm konfigürasyon dosyaları modüler yapıda organize edilmiştir:
+- `~/.config/hypr/config/` - Hyprland ayarları
+- `~/.config/waybar/` - Panel özelleştirmeleri
+- `~/.config/wofi/` - Launcher temaları
+
+## 📚 Daha Fazla Bilgi
+
+Detaylı paket listesi için `packages.txt` dosyasını inceleyin.
+
+---
+
+*Bu dotfiles konfigürasyonu, modern Linux masaüstü deneyimi için özenle hazırlanmıştır.*
