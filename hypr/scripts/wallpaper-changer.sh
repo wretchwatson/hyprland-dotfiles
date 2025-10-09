@@ -22,18 +22,30 @@ fi
 
 echo "Yeni wallpaper: $WALLPAPER"
 
-# Hyprpaper config dosyasını güncelle
-cat > "$HYPRPAPER_CONFIG" << EOF
+# Hyprctl ile wallpaper değiştir (yeniden başlatmadan)
+if pgrep -x "hyprpaper" > /dev/null; then
+    # Hyprpaper çalışıyorsa, hyprctl ile değiştir
+    hyprctl hyprpaper preload "$WALLPAPER"
+    hyprctl hyprpaper wallpaper ",""$WALLPAPER"""
+    
+    # Config dosyasını da güncelle
+    cat > "$HYPRPAPER_CONFIG" << EOF
 preload = $WALLPAPER
 wallpaper = ,$WALLPAPER
 
 splash = false
 ipc = on
 EOF
+else
+    # Hyprpaper çalışmıyorsa, config'i güncelle ve başlat
+    cat > "$HYPRPAPER_CONFIG" << EOF
+preload = $WALLPAPER
+wallpaper = ,$WALLPAPER
 
-# Hyprpaper'ı yeniden başlat
-pkill hyprpaper
-sleep 1
-hyprpaper &
+splash = false
+ipc = on
+EOF
+    hyprpaper &
+fi
 
 echo "Wallpaper değiştirildi: $(basename "$WALLPAPER")"
