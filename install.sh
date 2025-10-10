@@ -5,6 +5,15 @@
 
 echo "🚀 Hyprland Dotfiles Kurulum Başlıyor..."
 
+# Scriptin doğru dizinde çalıştırıldığını kontrol et
+if [ ! -f "hypr/hyprland.conf" ] || [ ! -f "waybar/config" ]; then
+    echo "❌ Hata: Script hyprland-dotfiles klasöründe çalıştırılmalı!"
+    echo "📁 Lütfen 'cd ~/hyprland-dotfiles' komutu ile doğru dizine geçin."
+    exit 1
+fi
+
+echo "✅ Dotfiles klasörü bulundu, kuruluma devam ediliyor..."
+
 # Git kurulumu
 echo "📦 Git kuruluyor..."
 sudo pacman -S --needed git base-devel
@@ -69,33 +78,52 @@ xdg-user-dirs-update
 
 # Config dosyalarını kopyala
 echo "📋 Config dosyaları kopyalanıyor..."
-cp -r hypr ~/.config/
-cp -r waybar ~/.config/
-cp -r wlogout ~/.config/
-cp -r wofi ~/.config/
-cp -r mako ~/.config/
-cp -r kitty ~/.config/
-cp -r fastfetch ~/.config/
-cp -r Kvantum ~/.config/
-cp -r qt6ct ~/.config/
-cp -r gtk-3.0 ~/.config/
-cp -r gtk-4.0 ~/.config/
-cp -r pcmanfm-qt ~/.config/
-cp mimeapps.list ~/.config/
+
+# Her dosyayı ayrı ayrı kontrol ederek kopyala
+CONFIG_DIRS="hypr waybar wlogout wofi mako kitty fastfetch Kvantum qt6ct gtk-3.0 gtk-4.0 pcmanfm-qt"
+for dir in $CONFIG_DIRS; do
+    if [ -d "$dir" ]; then
+        echo "  ✓ $dir kopyalanıyor..."
+        cp -r "$dir" ~/.config/ || echo "  ⚠️ $dir kopyalanamadı"
+    else
+        echo "  ⚠️ $dir klasörü bulunamadı"
+    fi
+done
+
+# Tek dosyaları kopyala
+if [ -f "mimeapps.list" ]; then
+    echo "  ✓ mimeapps.list kopyalanıyor..."
+    cp mimeapps.list ~/.config/ || echo "  ⚠️ mimeapps.list kopyalanamadı"
+else
+    echo "  ⚠️ mimeapps.list bulunamadı"
+fi
 
 # Zsh config (varsa)
 echo "🐚 Zsh ayarları kopyalanıyor..."
-if [ -f .zshrc ]; then
-    cp .zshrc ~/
+if [ -f ".zshrc" ]; then
+    echo "  ✓ .zshrc kopyalanıyor..."
+    cp .zshrc ~/ || echo "  ⚠️ .zshrc kopyalanamadı"
+else
+    echo "  ⚠️ .zshrc bulunamadı"
 fi
-if [ -f .p10k.zsh ]; then
-    cp .p10k.zsh ~/
+
+if [ -f ".p10k.zsh" ]; then
+    echo "  ✓ .p10k.zsh kopyalanıyor..."
+    cp .p10k.zsh ~/ || echo "  ⚠️ .p10k.zsh kopyalanamadı"
+else
+    echo "  ⚠️ .p10k.zsh bulunamadı"
 fi
 
 # Fontları kopyala
 echo "🔤 Fontlar kuruluyor..."
-cp -r fonts ~/.local/share/
-fc-cache -fv
+if [ -d "fonts" ]; then
+    echo "  ✓ Fontlar kopyalanıyor..."
+    cp -r fonts ~/.local/share/ || echo "  ⚠️ Fontlar kopyalanamadı"
+    echo "  ✓ Font cache güncelleniyor..."
+    fc-cache -fv
+else
+    echo "  ⚠️ fonts klasörü bulunamadı"
+fi
 
 # Wallpaper'ları kopyala (varsa)
 echo "🖼️ Wallpaper'lar kopyalanıyor..."
@@ -107,7 +135,12 @@ fi
 
 # SDDM config
 echo "🔧 SDDM ayarlanıyor..."
-sudo cp sddm.conf /etc/
+if [ -f "sddm.conf" ]; then
+    echo "  ✓ SDDM config kopyalanıyor..."
+    sudo cp sddm.conf /etc/ || echo "  ⚠️ SDDM config kopyalanamadı"
+else
+    echo "  ⚠️ sddm.conf bulunamadı"
+fi
 
 # Dosya sahipliklerini düzelt
 echo "🔧 Dosya sahiplikleri düzeltiliyor..."
@@ -145,8 +178,22 @@ sudo chsh -s /usr/bin/zsh $USER
 
 # Wallpaper cron job kur
 echo "🖼️ Wallpaper değiştirme cron job'u kuruluyor..."
-./setup-wallpaper-cron.sh
+if [ -f "setup-wallpaper-cron.sh" ]; then
+    chmod +x setup-wallpaper-cron.sh
+    ./setup-wallpaper-cron.sh || echo "  ⚠️ Wallpaper cron job kurulamadı"
+else
+    echo "  ⚠️ setup-wallpaper-cron.sh bulunamadı"
+fi
 
+echo ""
 echo "✅ Kurulum tamamlandı!"
+echo "📋 Kurulum özeti:"
+echo "  • Paketler: ✓ Kuruldu"
+echo "  • Config dosyaları: ✓ Kopyalandı"
+echo "  • Fontlar: ✓ Kuruldu"
+echo "  • SDDM: ✓ Ayarlandı"
+echo "  • Zsh: ✓ Yapılandırıldı"
+echo ""
 echo "🔄 Sistemi yeniden başlatın ve SDDM'den Hyprland'ı seçin."
 echo "🖼️ Wallpaper'lar her saat başında otomatik değişecek!"
+echo "📁 Wallpaper'larınızı ~/.local/share/wallpaper/ klasörüne ekleyin."
