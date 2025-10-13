@@ -32,7 +32,7 @@ fi
 
 # Ana paketleri yükle
 echo "📦 Ana paketler kontrol ediliyor..."
-PACMAN_PACKAGES="hyprland hyprpaper waybar wofi mako kitty pcmanfm-qt qt6ct kvantum capitaine-cursors papirus-icon-theme fastfetch cliphist wl-clipboard lxqt-policykit network-manager-applet blueman sddm ttf-font-awesome ttf-nerd-fonts-symbols noto-fonts python python-psutil python-requests grim slurp swappy jq lm_sensors xdg-desktop-portal-hyprland xdg-user-dirs xorg-xdpyinfo xorg-xhost xorg-xinit xorg-xinput xorg-xkill xorg-xrandr amd-ucode gnome-disk-utility gnome-keyring gparted seahorse gvfs-smb htop inxi lxqt-archiver zip unzip unrar micro code discord bc mtr mesa-utils mpv nano noto-fonts-cjk noto-fonts-emoji ntfs-3g nwg-look reflector sbctl yt-dlp zsh curl cronie"
+PACMAN_PACKAGES="hyprland hyprpaper waybar wofi mako kitty pcmanfm-qt qt6ct kvantum capitaine-cursors papirus-icon-theme fastfetch cliphist wl-clipboard lxqt-policykit network-manager-applet blueman sddm ttf-font-awesome ttf-nerd-fonts-symbols noto-fonts python python-psutil python-requests grim slurp swappy jq lm_sensors xdg-desktop-portal-hyprland xdg-user-dirs xorg-xdpyinfo xorg-xhost xorg-xinit xorg-xinput xorg-xkill xorg-xrandr amd-ucode gnome-disk-utility gnome-keyring gparted seahorse gvfs-smb htop inxi lxqt-archiver zip unzip unrar micro code discord bc mtr mesa-utils mpv nano pavucontrol noto-fonts-cjk noto-fonts-emoji ntfs-3g nwg-look reflector sbctl yt-dlp zsh curl cronie"
 
 MISSING_PACKAGES=""
 for pkg in $PACMAN_PACKAGES; do
