@@ -80,7 +80,7 @@ xdg-user-dirs-update
 echo "📋 Config dosyaları kopyalanıyor..."
 
 # Her dosyayı ayrı ayrı kontrol ederek kopyala
-CONFIG_DIRS="hypr waybar wlogout wofi mako kitty fastfetch Kvantum qt6ct gtk-3.0 gtk-4.0 pcmanfm-qt"
+CONFIG_DIRS="hypr waybar wlogout wofi mako kitty fastfetch Kvantum qt6ct gtk-3.0 gtk-4.0 pcmanfm-qt mpv"
 for dir in $CONFIG_DIRS; do
     if [ -d "$dir" ]; then
         echo "  ✓ $dir kopyalanıyor..."
