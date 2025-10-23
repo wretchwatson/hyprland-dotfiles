@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Grok
+Comment=Grok AI Web App
+Exec=google-chrome-stable --app=https://grok.com/ --class=grok
+Icon=/home/ridvan/.local/share/icons/webapps/grok.png
+Terminal=false
+Categories=Network;
+StartupWMClass=grok

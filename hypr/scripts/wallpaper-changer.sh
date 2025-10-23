@@ -48,4 +48,21 @@ EOF
     hyprpaper &
 fi
 
+# Current wallpaper symlink oluştur (autostart için)
+ln -sf "$WALLPAPER" "$WALLPAPER_DIR/current_wallpaper.jpg"
+
+# Matugen ile terminal ve waybar renklerini güncelle
+if command -v matugen >/dev/null 2>&1; then
+    matugen image "$WALLPAPER" >/dev/null 2>&1
+    # Waybar'ı yeniden yükle (restart yerine reload)
+    pkill -SIGUSR2 waybar 2>/dev/null || {
+        pkill waybar
+        sleep 0.5
+        waybar > /dev/null 2>&1 &
+    }
+    # Hyprland'ı yeniden yükle
+    hyprctl reload
+    echo "Terminal, waybar ve hyprland renkleri güncellendi"
+fi
+
 echo "Wallpaper değiştirildi: $(basename "$WALLPAPER")"

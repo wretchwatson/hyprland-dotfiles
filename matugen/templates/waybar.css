@@ -1,0 +1,4 @@
+window#waybar {
+    background: linear-gradient(135deg, {{colors.surface_variant.default.hex}}, {{colors.primary.default.hex}});
+    border: 2px solid {{colors.primary.default.hex}};
+}

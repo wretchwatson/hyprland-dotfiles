@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Kick
+Comment=Kick Streaming Web App
+Exec=google-chrome-stable --app=https://kick.com/ --class=kick
+Icon=/home/ridvan/.local/share/icons/webapps/kick.png
+Terminal=false
+Categories=Network;
+StartupWMClass=kick

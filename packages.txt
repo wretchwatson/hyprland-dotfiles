@@ -74,7 +74,6 @@ reflector
 sbctl
 yt-dlp
 zsh
-cronie
 
 ## SDDM
 sddm
@@ -86,7 +85,7 @@ sudo pacman -S hyprland hyprpaper waybar wofi mako kitty pcmanfm-qt qt6ct kvantu
 
 ## AUR Paketleri
 ```bash
-paru -S hyprlock wlogout arc-gtk-theme sddm-theme-sugar-candy-git google-chrome fjordlauncher-bin zenpower3-dkms
+paru -S hyprlock wlogout arc-gtk-theme sddm-theme-sugar-candy-git google-chrome fjordlauncher-bin zenpower3-dkms matugen hyprland-plugin-hyprexpo
 ```
 
 ## Oh My Zsh ve Pluginleri

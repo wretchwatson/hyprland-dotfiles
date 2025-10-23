@@ -32,7 +32,7 @@ fi
 
 # Ana paketleri yükle
 echo "📦 Ana paketler kontrol ediliyor..."
-PACMAN_PACKAGES="hyprland hyprpaper waybar wofi mako kitty pcmanfm-qt qt6ct kvantum capitaine-cursors papirus-icon-theme fastfetch cliphist wl-clipboard lxqt-policykit network-manager-applet blueman sddm ttf-font-awesome ttf-nerd-fonts-symbols noto-fonts python python-psutil python-requests grim slurp swappy jq lm_sensors xdg-desktop-portal-hyprland xdg-user-dirs xorg-xdpyinfo xorg-xhost xorg-xinit xorg-xinput xorg-xkill xorg-xrandr amd-ucode gnome-disk-utility gnome-keyring gparted seahorse gvfs-smb htop inxi lxqt-archiver zip unzip unrar micro code discord bc mtr mesa-utils mpv nano pavucontrol noto-fonts-cjk noto-fonts-emoji ntfs-3g nwg-look reflector sbctl yt-dlp zsh curl cronie"
+PACMAN_PACKAGES="hyprland hyprpaper waybar wofi mako kitty pcmanfm-qt qt6ct kvantum capitaine-cursors papirus-icon-theme fastfetch cliphist wl-clipboard lxqt-policykit network-manager-applet blueman sddm ttf-font-awesome ttf-nerd-fonts-symbols noto-fonts python python-psutil python-requests grim slurp swappy jq lm_sensors xdg-desktop-portal-hyprland xdg-user-dirs xorg-xdpyinfo xorg-xhost xorg-xinit xorg-xinput xorg-xkill xorg-xrandr amd-ucode gnome-disk-utility gnome-keyring gparted seahorse gvfs-smb htop inxi lxqt-archiver zip unzip unrar micro code discord bc mtr mesa-utils mpv nano pavucontrol noto-fonts-cjk noto-fonts-emoji ntfs-3g nwg-look reflector sbctl yt-dlp zsh curl"
 
 MISSING_PACKAGES=""
 for pkg in $PACMAN_PACKAGES; do
@@ -50,7 +50,7 @@ fi
 
 # AUR paketleri
 echo "📦 AUR paketleri kontrol ediliyor..."
-AUR_PACKAGES="hyprlock wlogout arc-gtk-theme sddm-theme-sugar-candy-git google-chrome fjordlauncher-bin zenpower3-dkms"
+AUR_PACKAGES="hyprlock wlogout arc-gtk-theme sddm-theme-sugar-candy-git google-chrome fjordlauncher-bin zenpower3-dkms matugen hyprland-plugin-hyprexpo"
 
 MISSING_AUR=""
 for pkg in $AUR_PACKAGES; do
@@ -80,7 +80,7 @@ xdg-user-dirs-update
 echo "📋 Config dosyaları kopyalanıyor..."
 
 # Her dosyayı ayrı ayrı kontrol ederek kopyala
-CONFIG_DIRS="hypr waybar wlogout wofi mako kitty fastfetch Kvantum qt6ct gtk-3.0 gtk-4.0 pcmanfm-qt mpv"
+CONFIG_DIRS="hypr waybar wlogout wofi mako kitty fastfetch Kvantum qt6ct gtk-3.0 gtk-4.0 pcmanfm-qt mpv lxqt matugen nwg-look"
 for dir in $CONFIG_DIRS; do
     if [ -d "$dir" ]; then
         echo "  ✓ $dir kopyalanıyor..."
@@ -125,6 +125,22 @@ else
     echo "  ⚠️ fonts klasörü bulunamadı"
 fi
 
+# Web app'leri kopyala
+echo "🌐 Web app'ler kuruluyor..."
+if [ -d "applications" ]; then
+    echo "  ✓ Applications kopyalanıyor..."
+    cp -r applications ~/.local/share/ || echo "  ⚠️ Applications kopyalanamadı"
+else
+    echo "  ⚠️ applications klasörü bulunamadı"
+fi
+
+if [ -d "icons" ]; then
+    echo "  ✓ Icons kopyalanıyor..."
+    cp -r icons ~/.local/share/ || echo "  ⚠️ Icons kopyalanamadı"
+else
+    echo "  ⚠️ icons klasörü bulunamadı"
+fi
+
 # Wallpaper'ları kopyala (varsa)
 echo "🖼️ Wallpaper'lar kopyalanıyor..."
 if [ -d "wallpaper" ] && [ "$(ls -A wallpaper 2>/dev/null)" ]; then
@@ -146,11 +162,9 @@ fi
 echo "🔧 Dosya sahiplikleri düzeltiliyor..."
 sudo chown -R $USER:$USER ~/.config/
 
-# SDDM ve Cronie'yi etkinleştir
+# SDDM'yi etkinleştir
 echo "🔧 SDDM etkinleştiriliyor..."
 sudo systemctl enable sddm
-echo "⏰ Cronie (cron) etkinleştiriliyor..."
-sudo systemctl enable cronie
 
 # Oh My Zsh kurulumu
 if [ ! -d "~/.oh-my-zsh" ]; then
@@ -176,15 +190,6 @@ fi
 echo "🐚 Zsh varsayılan shell yapılıyor..."
 sudo chsh -s /usr/bin/zsh $USER
 
-# Wallpaper cron job kur
-echo "🖼️ Wallpaper değiştirme cron job'u kuruluyor..."
-if [ -f "setup-wallpaper-cron.sh" ]; then
-    chmod +x setup-wallpaper-cron.sh
-    ./setup-wallpaper-cron.sh || echo "  ⚠️ Wallpaper cron job kurulamadı"
-else
-    echo "  ⚠️ setup-wallpaper-cron.sh bulunamadı"
-fi
-
 echo ""
 echo "✅ Kurulum tamamlandı!"
 echo "📋 Kurulum özeti:"
@@ -195,5 +200,4 @@ echo "  • SDDM: ✓ Ayarlandı"
 echo "  • Zsh: ✓ Yapılandırıldı"
 echo ""
 echo "🔄 Sistemi yeniden başlatın ve SDDM'den Hyprland'ı seçin."
-echo "🖼️ Wallpaper'lar her saat başında otomatik değişecek!"
 echo "📁 Wallpaper'larınızı ~/.local/share/wallpaper/ klasörüne ekleyin."

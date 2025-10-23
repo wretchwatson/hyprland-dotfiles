@@ -6,10 +6,10 @@
     min-height: 0;
 }
 
+@import "colors.css";
+
 window#waybar {
-    background: linear-gradient(135deg, rgba(45, 52, 54, 0.95), rgba(108, 92, 231, 0.1));
-    border-radius: 15px;
-    border: 2px solid rgba(157, 78, 221, 0.3);
+    border-radius: 12px;
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
@@ -29,7 +29,7 @@ window#waybar.hidden {
     margin: 1px;
     background-color: rgba(108, 92, 231, 0.2);
     color: #ffffff;
-    border-radius: 10px;
+    border-radius: 12px;
     border: 2px solid transparent;
     transition: all 0.3s ease;
 }
@@ -220,7 +220,7 @@ window#waybar.hidden {
 tooltip {
     background: rgba(45, 52, 54, 0.95);
     border: 2px solid rgba(157, 78, 221, 0.5);
-    border-radius: 10px;
+    border-radius: 12px;
     color: #ffffff;
     font-family: "Quicksand Medium", sans-serif;
 }
