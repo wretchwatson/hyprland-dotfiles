@@ -2,9 +2,9 @@
 
 # Appearance
 font=Quicksand Medium 12
-background-color=#2d3436ee
-text-color=#ffffff
-border-color=#9d4edd
+background-color=#17130bee
+text-color=#ebe1d4
+border-color=#d9c4a0
 border-size=2
 border-radius=10
 padding=15
@@ -27,41 +27,41 @@ max-icon-size=48
 icon-path=/usr/share/icons/Papirus-Dark
 
 # Progress bar
-progress-color=over #06ffa5
+progress-color=over #b1cfa8
 
 # Urgency levels
 [urgency=low]
-background-color=#2d3436cc
-border-color=#6c5ce7
+background-color=#17130bcc
+border-color=#ebc16c
 default-timeout=3000
 
 [urgency=normal]
-background-color=#2d3436ee
-border-color=#9d4edd
+background-color=#17130bee
+border-color=#d9c4a0
 default-timeout=5000
 
 [urgency=critical]
-background-color=#e74c3cee
-border-color=#d63031
-text-color=#ffffff
+background-color=#ffb4abee
+border-color=#ffb4ab
+text-color=#690005
 default-timeout=0
 
 # App-specific styling
 [app-name=volume]
-border-color=#a29bfe
-background-color=#6c5ce7aa
+border-color=#ebc16c
+background-color=#ebc16caa
 
 [app-name=brightness]
-border-color=#fdcb6e
-background-color=#f39c12aa
+border-color=#b1cfa8
+background-color=#b1cfa8aa
 
 [app-name=battery]
-border-color=#00d68f
-background-color=#00b894aa
+border-color=#b1cfa8
+background-color=#b1cfa8aa
 
 [app-name=network]
-border-color=#74b9ff
-background-color=#0984e3aa
+border-color=#d9c4a0
+background-color=#d9c4a0aa
 
 [app-name=spotify]
 border-color=#1db954
