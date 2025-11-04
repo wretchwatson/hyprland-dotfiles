@@ -39,7 +39,7 @@ window {
 }
 
 #entry:selected {
-    background: linear-gradient(45deg, #{{colors.secondary.default.hex_stripped}}, #{{colors.primary.default.hex_stripped}});
+    background: linear-gradient(90deg, #{{colors.primary_container.default.hex_stripped}}, #{{colors.primary.default.hex_stripped}});
     border-radius: 5px;
 }
 

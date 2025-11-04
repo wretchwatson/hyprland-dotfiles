@@ -39,7 +39,7 @@ window {
 }
 
 #entry:selected {
-    background: linear-gradient(90deg, #ebc16c, #d9c4a0);
+    background: linear-gradient(90deg, #5c4200, #ebc16c);
     border-radius: 5px;
 }
 
