@@ -65,6 +65,7 @@ window#waybar.hidden {
 #custom-weather,
 #custom-clipboard,
 #custom-screenshot,
+#custom-tailscale,
 #disk,
 #temperature,
 #backlight,
@@ -86,6 +87,7 @@ window#waybar.hidden {
 #custom-weather:hover,
 #custom-clipboard:hover,
 #custom-screenshot:hover,
+#custom-tailscale:hover,
 #battery:hover,
 #cpu:hover,
 #custom-cpu:hover,
@@ -204,6 +206,14 @@ window#waybar.hidden {
     background: linear-gradient(45deg, #9d4edd, #e84393);
     font-size: 18px;
     font-weight: bold;
+}
+
+#custom-tailscale.active {
+    background: linear-gradient(45deg, #00d68f, #00b7a3);
+}
+
+#custom-tailscale.inactive {
+    background: linear-gradient(45deg, #636e72, #2d3436);
 }
 
 #custom-power:hover {
