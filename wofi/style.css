@@ -1,7 +1,7 @@
 window {
     margin: 0px;
-    border: 2px solid #9d4edd;
-    background-color: rgba(45, 52, 54, 0.95);
+    border: 2px solid #d9c4a0;
+    background-color: rgba(23, 19, 11, 0.95);
     border-radius: 10px;
     font-family: "Quicksand Medium", sans-serif;
     font-size: 16px;
@@ -9,9 +9,9 @@ window {
 
 #input {
     margin: 5px;
-    border: 2px solid #6c5ce7;
-    color: #ffffff;
-    background-color: rgba(108, 92, 231, 0.3);
+    border: 2px solid #ebc16c;
+    color: #ebe1d4;
+    background-color: rgba(235, 193, 108, 0.3);
     border-radius: 5px;
 }
 
@@ -35,15 +35,15 @@ window {
 #text {
     margin: 5px;
     border: none;
-    color: #ffffff;
+    color: #ebe1d4;
 }
 
 #entry:selected {
-    background: linear-gradient(45deg, #9d4edd, #a29bfe);
+    background: linear-gradient(90deg, #ebc16c, #d9c4a0);
     border-radius: 5px;
 }
 
 #entry:hover {
-    background-color: rgba(6, 255, 165, 0.3);
+    background-color: rgba(177, 207, 168, 0.3);
     border-radius: 5px;
 }

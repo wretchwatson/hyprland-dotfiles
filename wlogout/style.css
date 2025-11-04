@@ -5,13 +5,13 @@
 }
 
 window {
-    background-color: rgba(45, 52, 54, 0.9);
+    background-color: rgba(23, 19, 11, 0.9);
 }
 
 button {
-    color: #ffffff;
-    background-color: rgba(108, 92, 231, 0.3);
-    border: 2px solid #9d4edd;
+    color: #ebe1d4;
+    background-color: rgba(235, 193, 108, 0.3);
+    border: 2px solid #d9c4a0;
     border-radius: 10px;
     background-repeat: no-repeat;
     background-position: center;
@@ -20,25 +20,25 @@ button {
 }
 
 button:focus, button:active {
-    background-color: rgba(157, 78, 221, 0.6);
-    border: 2px solid #06ffa5;
+    background-color: rgba(235, 193, 108, 0.6);
+    border: 2px solid #b1cfa8;
     outline-style: none;
 }
 
 button:hover {
-    background-color: rgba(108, 92, 231, 0.5);
-    border: 2px solid #9d4edd;
+    background-color: rgba(235, 193, 108, 0.5);
+    border: 2px solid #d9c4a0;
 }
 
 #lock {
     background-image: image(url("/usr/share/wlogout/icons/lock.png"));
-    background-color: rgba(108, 92, 231, 0.3);
-    border: 2px solid #9d4edd;
+    background-color: rgba(235, 193, 108, 0.3);
+    border: 2px solid #d9c4a0;
 }
 
 #lock:hover {
-    background-color: rgba(108, 92, 231, 0.5);
-    border: 2px solid #9d4edd;
+    background-color: rgba(235, 193, 108, 0.5);
+    border: 2px solid #d9c4a0;
 }
 
 #logout {

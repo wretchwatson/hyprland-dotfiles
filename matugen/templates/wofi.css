@@ -1,0 +1,49 @@
+window {
+    margin: 0px;
+    border: 2px solid #{{colors.secondary.default.hex_stripped}};
+    background-color: rgba({{colors.surface.default.red}}, {{colors.surface.default.green}}, {{colors.surface.default.blue}}, 0.95);
+    border-radius: 10px;
+    font-family: "Quicksand Medium", sans-serif;
+    font-size: 16px;
+}
+
+#input {
+    margin: 5px;
+    border: 2px solid #{{colors.primary.default.hex_stripped}};
+    color: #{{colors.on_surface.default.hex_stripped}};
+    background-color: rgba({{colors.primary.default.red}}, {{colors.primary.default.green}}, {{colors.primary.default.blue}}, 0.3);
+    border-radius: 5px;
+}
+
+#inner-box {
+    margin: 5px;
+    border: none;
+    background-color: transparent;
+}
+
+#outer-box {
+    margin: 5px;
+    border: none;
+    background-color: transparent;
+}
+
+#scroll {
+    margin: 0px;
+    border: none;
+}
+
+#text {
+    margin: 5px;
+    border: none;
+    color: #{{colors.on_surface.default.hex_stripped}};
+}
+
+#entry:selected {
+    background: linear-gradient(45deg, #{{colors.secondary.default.hex_stripped}}, #{{colors.primary.default.hex_stripped}});
+    border-radius: 5px;
+}
+
+#entry:hover {
+    background-color: rgba({{colors.tertiary.default.red}}, {{colors.tertiary.default.green}}, {{colors.tertiary.default.blue}}, 0.3);
+    border-radius: 5px;
+}
