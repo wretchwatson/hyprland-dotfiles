@@ -28,7 +28,6 @@ gvfs
 gvfs-smb
 htop
 hypridle
-hyprlauncher
 hyprland
 hyprlock
 hyprpaper
