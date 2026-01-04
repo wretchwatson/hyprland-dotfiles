@@ -1,0 +1,12 @@
+antigravity
+fjordlauncher-bin
+fluent-cursor-theme-git
+fluent-icon-theme-git
+google-chrome
+quickshell-allflags-git
+spotify
+spotify-adblock
+steamcmd
+ttf-comfortaa
+visual-studio-code-bin
+sddm-silent-theme-git

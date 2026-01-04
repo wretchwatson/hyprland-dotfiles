@@ -1,0 +1,17 @@
+module modules
+singleton Theme 1.0 Theme.qml
+StyledRect 1.0 StyledRect.qml
+Workspaces 1.0 Workspaces.qml
+Clock 1.0 Clock.qml
+Network 1.0 Network.qml
+Volume 1.0 Volume.qml
+Power 1.0 Power.qml
+PowerMenu 1.0 PowerMenu.qml
+SysTray 1.0 SysTray.qml
+RoundedCorner 1.0 RoundedCorner.qml
+ScreenCorners 1.0 ScreenCorners.qml
+LayoutSelector 1.0 LayoutSelector.qml
+LayoutMenu 1.0 LayoutMenu.qml
+Memory 1.0 Memory.qml
+Tooltip 1.0 Tooltip.qml
+Weather 1.0 Weather.qml
