@@ -83,7 +83,12 @@ fi
 if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
     git clone https://github.com/zsh-users/zsh-syntax-highlighting "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
 fi
-msg "Zsh plugins installed."
+
+msg "Installing Powerlevel10k theme..."
+if [ ! -d "$ZSH_CUSTOM/themes/powerlevel10k" ]; then
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH_CUSTOM/themes/powerlevel10k"
+fi
+msg "Zsh plugins and theme installed."
 
 # 5. Restore System Configs
 msg "Restoring system-level configurations (sudo required)..."
