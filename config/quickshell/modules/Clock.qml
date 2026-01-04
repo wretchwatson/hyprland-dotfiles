@@ -31,7 +31,7 @@ Item {
         RowLayout {
             id: mainLayout
             anchors.centerIn: parent
-            spacing: 12
+            spacing: 6
             
             Text {
                 id: timeText
