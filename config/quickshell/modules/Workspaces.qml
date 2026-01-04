@@ -54,7 +54,7 @@ Item {
     
     Row {
         id: row
-        spacing: -2
+        spacing: -4
         anchors.centerIn: parent
         
         Repeater {
