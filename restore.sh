@@ -67,7 +67,16 @@ cp -v "$DOTFILES_DIR/.p10k.zsh" "$HOME/" 2>/dev/null
 cp -v "$DOTFILES_DIR/.gtkrc-2.0" "$HOME/" 2>/dev/null
 msg "Home dotfiles restored."
 
-# 4. Zsh Environment (Oh My Zsh & Plugins)
+# 4. Apply GTK Settings (gsettings)
+msg "Applying GTK theme settings..."
+gsettings set org.gnome.desktop.interface gtk-theme 'Materia-dark-compact'
+gsettings set org.gnome.desktop.interface icon-theme 'Fluent-dark'
+gsettings set org.gnome.desktop.interface cursor-theme 'Fluent-dark-cursors'
+gsettings set org.gnome.desktop.interface font-name 'Comfortaa Medium 11'
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+msg "GTK settings applied."
+
+# 5. Zsh Environment (Oh My Zsh & Plugins)
 msg "Setting up Zsh environment (Oh My Zsh & Plugins)..."
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     msg "Installing Oh My Zsh..."
@@ -90,7 +99,7 @@ if [ ! -d "$ZSH_CUSTOM/themes/powerlevel10k" ]; then
 fi
 msg "Zsh plugins and theme installed."
 
-# 5. Restore System Configs
+# 6. Restore System Configs
 msg "Restoring system-level configurations (sudo required)..."
 
 # Locale Generation
@@ -116,7 +125,7 @@ msg "Activating SDDM service..."
 sudo systemctl enable sddm
 msg "System configurations restored and SDDM enabled."
 
-# Final Environment Update
+# 7. Final Environment Update
 msg "Updating XDG user directories..."
 xdg-user-dirs-update
 msg "XDG user directories updated."
